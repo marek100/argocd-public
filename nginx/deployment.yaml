@@ -1,0 +1,19 @@
+apiVersion: apps/1
+kind: deployment
+metadata:
+  name: nginx-deployment
+  namespace: openshift
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  matchLabels:
+    app: nginx
+  template:
+    metadate:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
