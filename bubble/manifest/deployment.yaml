@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: bubble
+  name: bubble
+  namespace: bubble
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bubble
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: bubble
+    spec:
+      containers:
+      - image: quay.io/rhdevelopers/bgd:1.0.0
+        name: bubble
+        env:
+        - name: COLOR
+          value: "blue"
